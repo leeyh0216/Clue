@@ -1,10 +1,8 @@
-package com.anylambda.compiler.core
+package com.clue.core.compiler
 
 import java.io.File
 import java.nio.file.Files
 
-import com.anylambda.compiler
-import com.anylambda.compiler.core
 import org.junit.rules.TemporaryFolder
 import org.junit.{Assert, Test}
 
@@ -12,7 +10,7 @@ class RuntimeScalaCompilerTest {
 
   @Test(expected = classOf[IllegalArgumentException])
   def testBuilderWithoutSetSource(): Unit ={
-    new core.RuntimeScalaCompiler.Builder().build()
+    new RuntimeScalaCompiler.Builder().build()
   }
 
   @Test(expected = classOf[IllegalArgumentException])
@@ -21,7 +19,7 @@ class RuntimeScalaCompilerTest {
     tmpFolder.create()
     val srcDir = tmpFolder.getRoot.getAbsolutePath
 
-    val builder = new compiler.core.RuntimeScalaCompiler.Builder().setSourceDir(srcDir)
+    val builder = new RuntimeScalaCompiler.Builder().setSourceDir(srcDir)
     builder.build()
   }
 
@@ -40,7 +38,7 @@ class RuntimeScalaCompilerTest {
     tmpFolder2.create()
     val resDir = tmpFolder2.getRoot.getAbsolutePath
 
-    val builder = new compiler.core.RuntimeScalaCompiler.Builder().setSourceDir(srcDir).setResultDir(resDir)
+    val builder = new RuntimeScalaCompiler.Builder().setSourceDir(srcDir).setResultDir(resDir)
     builder.build()
 
     Assert.assertTrue(new File(resDir, "classes").exists())
@@ -62,7 +60,7 @@ class RuntimeScalaCompilerTest {
     tmpFolder2.create()
     val resDir = tmpFolder2.getRoot.getAbsolutePath
 
-    val builder = new compiler.core.RuntimeScalaCompiler
+    val builder = new RuntimeScalaCompiler
                         .Builder()
                         .setSourceDir(srcDir)
                         .setClassFilePath(customClassFilePath)
@@ -87,7 +85,7 @@ class RuntimeScalaCompilerTest {
     tmpFolder2.create()
     val resDir = tmpFolder2.getRoot.getAbsolutePath
 
-    val builder = new compiler.core.RuntimeScalaCompiler.Builder().setSourceDir(srcDir).setResultDir(resDir)
+    val builder = new RuntimeScalaCompiler.Builder().setSourceDir(srcDir).setResultDir(resDir)
     builder.build()
 
     Assert.assertTrue(new File(resDir, "build").exists())
@@ -109,7 +107,7 @@ class RuntimeScalaCompilerTest {
     tmpFolder2.create()
     val resDir = tmpFolder2.getRoot.getAbsolutePath
 
-    val builder = new compiler.core.RuntimeScalaCompiler
+    val builder = new RuntimeScalaCompiler
     .Builder()
       .setSourceDir(srcDir)
       .setClassFilePath(customJarFilePath)

@@ -1,3 +1,3 @@
-package com.anylambda.compiler.core
+package com.clue.core.compiler
 
 case class CompileResult(elapsed: Long, createdJarFile: String)

@@ -1,8 +1,8 @@
-package com.anylambda.compiler.core
+package com.clue.core.compiler
 
 import java.io.{File, FileInputStream, FileNotFoundException, FileOutputStream}
-import java.util.{Calendar, Timer, UUID}
 import java.util.jar.{JarEntry, JarOutputStream}
+import java.util.{Calendar, UUID}
 
 import com.anylambda.exceptions.{CompileException, JarPackagingException}
 import com.anylambda.util.Logging
