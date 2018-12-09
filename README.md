@@ -1,2 +1,1 @@
-# Clue
-AWS Glue clone coding
+# NCSLambda
